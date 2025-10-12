@@ -56,7 +56,7 @@ def augment_dataset(raw_dir="dataset/raw", augmented_dir="dataset/augmented", n_
             augment_image(img_path, dest_dir, n_samples=n_samples_per_img)
             print(f"  ✅ Augmented: {img_name}")
 
-    print("\n🎉 Augmentation completed! All results saved in:", augmented_dir)
+    print("\n🎉 Augmentation completed! All results saved in abc:", augmented_dir)
 
 # ---- Chạy thử ----
 if __name__ == "__main__":

@@ -136,7 +136,7 @@
 # st.markdown("---")
 # st.markdown("<p style='text-align: center; color: #666;'>Model: ResNet50 | Acc: 88.8%</p>", unsafe_allow_html=True)
 
-# frontend/app.py – BẢN HOÀN HẢO NHẤT (18/11/2025)
+# bản streamlit cloud 
 import streamlit as st
 import torch
 from torchvision import models, transforms
@@ -167,7 +167,7 @@ def load_model():
 
     try:
         model.load_state_dict(torch.load(model_path, map_location="cpu"))
-        st.success("MODEL ĐÃ TẢI THÀNH CÔNG! (92.00% - Recall bệnh 100%)")
+        st.success("Model đã tải thành công!")
     except Exception as e:
         st.error(f"Lỗi load model: {e}")
         st.stop()
@@ -178,7 +178,7 @@ def load_model():
 model = load_model()
 
 # =====================================================
-# 2. TRANSFORM + UI + DỰ ĐOÁN (giữ nguyên đẹp lung linh)
+# 2. TRANSFORM + UI
 # =====================================================
 transform = transforms.Compose([
     transforms.Resize((128, 128)),
@@ -226,9 +226,9 @@ if uploaded_file and model:
         st.bar_chart({"BỊ BỆNH": prob[0].item()*100, "KHỎE MẠNH": prob[1].item()*100})
         
         if pred == 0:
-            st.error("CẢNH BÁO: Lá có dấu hiệu bệnh nghiêm trọng!")
+            st.error("**Cảnh báo:** Lá có dấu hiệu bệnh. Có thể liên quan tới sâu, nấm hoặc vi khuẩn.")
         else:
-            st.success("Tuyệt vời! Lá cây hoàn toàn khỏe mạnh")
-
-st.markdown("---")
-st.markdown("<p style='text-align: center;'>Model ResNet50 • Accuracy 92.00% • Recall bệnh 100% • 623 ảnh thực tế</p>", unsafe_allow_html=True)
+            st.success("**Tuyệt vời!** Lá hoàn toàn khỏe mạnh.")
+# # Footer
+# st.markdown("---")
+# st.markdown("<p style='text-align: center; color: #666;'>Model: ResNet50 | Acc: 88.8%</p>", unsafe_allow_html=True)

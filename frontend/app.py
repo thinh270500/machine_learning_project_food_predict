@@ -219,5 +219,3 @@ if uploaded_file and model:
 # Footer
 st.markdown("---")
 st.markdown("<p style='text-align: center; color: #666;'>Model: ResNet50 | Acc: 88.8%</p>", unsafe_allow_html=True)
-
-)
